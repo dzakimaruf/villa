@@ -21,7 +21,12 @@ const users = (sequelize, DataTypes) => {
     user_type: {
       type: DataTypes.STRING(10),
       allowNull: true
+    },
+    user_salt:{
+      type: DataTypes.STRING(225),
+      allowNull: true
     }
+
   }, {
     sequelize,
     tableName: 'users',

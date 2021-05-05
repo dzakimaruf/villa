@@ -1,12 +1,9 @@
 import React from 'react'
-
+import codeidpng from '../../client/assets/images/namdo.jpg'
 
 export default function Home() {
   return (
     <>
-
-      <h3>Welcome to VillaBook</h3>
-      
     </>
   )
 }

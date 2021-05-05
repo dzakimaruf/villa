@@ -16,7 +16,7 @@ const signup = async (req, res) => {
   //const { user_name, user_email, user_password } = req.body;
 
   const { dataValues } = new req.context.models.Users(req.body);
-
+ 
   const salt = AuthHelper.makeSalt();
   const hashPassword = AuthHelper.hashPassword(dataValues.user_password, salt);
 
@@ -24,7 +24,8 @@ const signup = async (req, res) => {
     user_name: dataValues.user_name,
     user_email: dataValues.user_email,
     user_password: hashPassword,
-    user_salt: salt
+    user_type:dataValues.user_type,
+    user_salt: salt,
   });
 
   return res.send(users);
@@ -71,7 +72,8 @@ const signin = async (req, res) => {
     return res.json({token,users: {
       user_id : users.dataValues.user_id,
       user_name : users.dataValues.user_name,
-      user_email : users.dataValues.user_email
+      user_email : users.dataValues.user_email,
+  
     }});
 
 

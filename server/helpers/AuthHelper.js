@@ -1,12 +1,12 @@
+  
 import crypto from 'crypto'
 
 const AuthHelper = {
-
-    hashPassword(password,salt) {
-        return this.encryptPassword(password,salt);
+    hashPassword(password, salt) {
+        return this.encryptPassword(password, salt)
     },
 
-    encryptPassword(password,salt) {
+    encryptPassword(password, salt) {
         if (!password) return ''
         try {
             return crypto
@@ -22,12 +22,9 @@ const AuthHelper = {
         return Math.round((new Date().valueOf() * Math.random())) + ''
     },
 
-    authenticate (plaintext,hashPassword,salt) {
-        return this.encryptPassword(plaintext,salt) === hashPassword
+    authenticate (plaintext, hashPassword, salt) {
+        return this.encryptPassword(plaintext, salt) == hashPassword
     }
-
 }
 
-
-
-export default AuthHelper;
+export default AuthHelper

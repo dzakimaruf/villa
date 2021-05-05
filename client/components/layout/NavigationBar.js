@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import codeidpng from './../../assets/images/hris1.png'
-import profileImg from './../../assets/images/tom.jpg'
+import profileImg from './../../assets/images/namdo.jpg'
 import { Link, useHistory } from "react-router-dom";
 
 

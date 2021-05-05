@@ -4,7 +4,6 @@ import cookieParser from 'cookie-parser'
 import compress from 'compression'
 import cors from 'cors'
 import helmet from 'helmet'
-
 import models from './models/index';
 import routes from './routes/IndexRoute';
 
@@ -36,7 +35,7 @@ app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 
 
 app.use("/hr/api/v1/test", (req, res) => {
-    res.send("Hello HR-Fullstack JS")
+    res.send("VillaBooks")
 });
 
 // #middleware
@@ -45,10 +44,11 @@ app.use(async (req, res, next) => {
     next();
 });
 
- app.use('/api/villas', routes.villasRoute);
+ app.use('/api/villas', routes.VillaRoute);
  app.use('/api/upload', routes.UploadDownloadRoute);
  app.use('/api/order', routes.ordersRoute);
  app.use('/api/auth', routes.AuthRoute);
+ app.use('/api/user', routes.UserRoute);
 // app.use('/api/auth', routes.AuthRoute);
 
 // 2. Client-Side : ReactDOMServer.
