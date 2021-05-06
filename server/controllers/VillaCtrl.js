@@ -49,7 +49,6 @@ const update = async (req, res) => {
             villa_status: req.body.villa_status,
             villa_user_id: req.body.villa_user_id
             
-
          },// nama attribute yg akan di update
         { returning: true, where: { villa_id: req.params.id } }
     );
@@ -66,7 +65,6 @@ const remove = async (req, res) => {
     });
     
 }
-
 const rawSQL = async (req, res) => {
     await sequelize.query('SELECT * FROM regions where villa_id = :villaId',
         { replacements: { villaId: parseInt(req.params.id) }, type: sequelize.QueryTypes.SELECT } 

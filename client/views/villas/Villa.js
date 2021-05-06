@@ -11,7 +11,7 @@ export default function Villa() {
     const [modal,setModal] = useState(false);
     const [status,setStatus] = useState(false);
 
-    const[villa,setVilla] =useState({
+    const[villa,setVilla] = useState({
         villa_id : undefined,
         actionType : undefined
     })
@@ -255,7 +255,7 @@ export default function Villa() {
         { modal ? <AddEditVilla 
             title={'Villa'} 
             setModal={()=>setModal(false)}
-            setStatus={()=>setStatus(true)}    
+            setStatus={()=>setStatus(true)}  
             villa={villa}
         /> : null} 
 

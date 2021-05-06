@@ -4,8 +4,8 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import Sidebar from "../components/layout/Sidebar"
 
-const navigation = ['Dashboard', 'Team', 'Projects', 'Calendar', 'Reports']
-const profile = ['Your Profile', 'Settings', 'Sign out']
+const navigation = ['Akomodasi', 'Lokasi', 'Diskon', 'Calendar']
+const profile = ['Your Profile', 'Settings', 'Bantuan', 'Sign out']
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')

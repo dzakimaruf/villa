@@ -46,6 +46,7 @@ export default function AddEditVilla(props) {
                         villa_address: data.villa_address,
                         villa_kamar_tidur: data.villa_kamar_tidur,
                         villa_kamar_mandi: data.villa_kamar_mandi,
+                        villa_tipe: data.villa_tipe,
                         villa_lantai: data.villa_lantai,
                         villa_status: data.villa_status,
                         villa_user_id: data.villa_user_id
@@ -100,12 +101,12 @@ export default function AddEditVilla(props) {
                 villa_user_id: values.villa_user_id || undefined,
 
             }
-
             apiVilla.create(villa).then(data => {
-                if (data.errors) {
+                if (data.error) {
                     console.log('create new record failed')
-                    setValues({ ...values, error: data.errors[0].message })
+                    setValues({ ...values, error: data.error.message })
                 } else {
+                  
                     props.setStatus();
                     props.setModal();
                 }
@@ -182,47 +183,52 @@ export default function AddEditVilla(props) {
                                                 <input id="villa_title" name="villa_title"
                                                     value={values.villa_title}
                                                     onChange={handleOnChange('villa_title')}
-                                                    type="text" placeholder="NamaVilla" />
+                                                    type="text" placeholder="Villa's Name" />
 
                                                 <input id="villa_harga_sewa" name="villa_harga_sewa"
                                                     value={values.villa_harga_sewa}
                                                     onChange={handleOnChange('villa_harga_sewa')}
-                                                    type="number" placeholder="Harga" />
+                                                    type="number" placeholder="Price" />
 
                                                 <input id="villa_description" name="villa_description"
                                                     value={values.villa_description}
                                                     onChange={handleOnChange('villa_description')}
-                                                    type="text" placeholder="Deskripsi" />
+                                                    type="text" placeholder="Description" />
 
                                                 <input id="villa_address" name="villa_address"
                                                     value={values.villa_address}
                                                     onChange={handleOnChange('villa_address')}
-                                                    type="text" placeholder="Alamat" />
+                                                    type="text" placeholder="Address" />
 
                                                 <input id="villa_kamar_tidur" name="villa_kamar_tidur"
                                                     value={values.villa_kamar_tidur}
                                                     onChange={handleOnChange('villa_kamar_tidur')}
-                                                    type="number" placeholder="Kamar" />
+                                                    type="number" placeholder="Bedroom" />
 
                                                 <input id="villa_kamar_mandi" name="villa_kamar_mandi"
                                                     value={values.villa_kamar_mandi}
                                                     onChange={handleOnChange('villa_kamar_mandi')}
-                                                    type="number" placeholder="Kamar Mandi" />
+                                                    type="number" placeholder="Bathroom" />
 
                                                 <input id="villa_tipe" name="villa_tipe"
                                                     value={values.villa_tipe}
                                                     onChange={handleOnChange('villa_tipe')}
-                                                    type="text" placeholder="Tipe" />
+                                                    type="text" placeholder="Type" />
 
                                                 <input id="villa_lantai" name="villa_lantai"
                                                     value={values.villa_lantai}
                                                     onChange={handleOnChange('villa_lantai')}
-                                                    type="number" placeholder="Tingkat" />
+                                                    type="number" placeholder="Floor" />
 
                                                 <input id="villa_status" name="villa_status"
                                                     value={values.villa_status}
                                                     onChange={handleOnChange('villa_status')}
                                                     type="text" placeholder="Status" />
+
+                                                <input id="villa_fasilitas" name="villa_fasilitas"
+                                                    value={values.villa_fasilitas}
+                                                    onChange={handleOnChange('villa_fasilitas')}
+                                                    type="text" placeholder="Facility" />
 
                                                 <input id="villa_user_id" name="villa_user_id"
                                                     value={values.villa_user_id}
@@ -236,10 +242,10 @@ export default function AddEditVilla(props) {
                                                     >
                                                         <option>Choose User</option>
                                                         {
-                                                            //users &&
-                                                            // users.map(data => {
-                                                            //     return (<option value={data.user_id}>{data.user_name}</option>)
-                                                            // })
+                                                            users &&
+                                                            users.map(data => {
+                                                                return (<option value={data.user_id}>{data.user_name}</option>)
+                                                            })
                                                         }
                                                     </select>
                                                 </div>

@@ -10,9 +10,7 @@ const create = async (req, res,next) => {
     // using middleware
     next();
 
-
 }
-
  const createImage = async (req, res,data) => {
     const{vimId,utama,fileName,filePath} = data;
     await req.context.models.Villa_images.create({
@@ -27,7 +25,7 @@ const create = async (req, res,next) => {
 } 
 
 const findAll = async (req, res) => {
-    const result = await req.context.models.esImages.findAll();
+    const result = await req.context.models.Villa_Images.findAll();
     return res.send(result);
 }
 

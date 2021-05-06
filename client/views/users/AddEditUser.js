@@ -40,7 +40,6 @@ export default function AddEditUser(props) {
         }
 
         if (props.user.actionType === 'Add') {
-
             const user = {
                 user_id: values.user_id || undefined,
                 user_name: values.user_name || undefined,

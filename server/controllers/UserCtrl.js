@@ -7,7 +7,7 @@ const findAll = async (req, res) => {
             include: [{
                 model: req.context.models.Villas
             }]
-        } 
+        }
     );
     return res.send(users);
 }
@@ -22,18 +22,26 @@ const findOne = async (req, res) => {
 // create new region
 const create = async (req, res) => {
     const users = await req.context.models.Users.create({
-        user_name: req.body.user_name
+        user_name: req.body.user_name,
+        user_email: req.body.user_email,
+        user_password: req.body.user_password,
+        user_type: req.body.user_type,
+        user_salt: req.body.user_salt
     });
     return res.send(users);
 }
 
 // update regions set region_name=:2,region_desc=:4 where region_id=:3
 const update = async (req, res) => {
-    const { user_name } = req.body;
     const users = await req.context.models.Users.update(
-        { user_name: user_name,
-        
-         },// nama attribute yg akan di update
+        {
+            user_name: req.body.user_name,
+            user_email: req.body.user_email,
+            user_password: req.body.user_password,
+            user_type: req.body.user_type,
+            user_salt: req.body.user_salt
+
+        },// nama attribute yg akan di update
         { returning: true, where: { user_id: req.params.id } }
     );
     return res.send(users);
@@ -42,17 +50,17 @@ const update = async (req, res) => {
 // delete 
 const remove = async (req, res) => {
     await req.context.models.Users.destroy({
-          where: { user_id: req.params.id }
-    }).then(result =>{
+        where: { user_id: req.params.id }
+    }).then(result => {
         console.log(result);
-        return res.send("delete "+result+" rows.");
+        return res.send("delete " + result + " rows.");
     });
-    
+
 }
 
 const rawSQL = async (req, res) => {
     await sequelize.query('SELECT * FROM regions where user_id = :userId',
-        { replacements: { userId: parseInt(req.params.id) }, type: sequelize.QueryTypes.SELECT } 
+        { replacements: { userId: parseInt(req.params.id) }, type: sequelize.QueryTypes.SELECT }
     ).then(result => {
         return res.send(result);
     })

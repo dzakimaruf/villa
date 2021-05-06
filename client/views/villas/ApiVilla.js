@@ -10,9 +10,9 @@ const list = async () => {
 
 }
 
-const create = async (data) => {
+const create = async (villa) => {
     try {
-        let response = await axios.post(`/api/villas/`,data)
+        let response = await axios.post(`/api/villas/`,villa)
         return await response.data
     } catch (err) {
         return await err.response.data

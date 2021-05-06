@@ -175,7 +175,7 @@ export default function User() {
                 title={'Add User'}
                 setModal={() => setModal(false)}
                 setStatus={() => setStatus(true)}
-                region = {user}
+                user = {user}
             /> : null}
 
         </div>
